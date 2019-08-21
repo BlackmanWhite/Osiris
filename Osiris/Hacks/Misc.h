@@ -23,6 +23,7 @@ namespace Misc {
     void drawBombTimer() noexcept;
     void stealNames() noexcept;
     void quickReload(UserCmd*) noexcept;
+    void blockbot(UserCmd*) noexcept;
 
     constexpr void fixMovement(UserCmd* cmd, float yaw) noexcept
     {
