@@ -207,6 +207,10 @@ public:
         bool quickReload{ false };
         bool prepareRevolver{ false };
         int prepareRevolverKey{ 0 };
+        bool blockbot{ false };
+        bool bOnKey { false };
+        int key { 0 };
+        int keyMode { 0 };
         int hitSound{ 0 };
         int chokedPackets{ 0 };
         int chokedPacketsKey{ 0 };
