@@ -106,6 +106,7 @@ static bool __stdcall createMove(float inputSampleTime, UserCmd* cmd) noexcept
     const float oldYaw = cmd->viewangles.y;
     memory.globalVars->serverTime(cmd);
     Misc::antiAfkKick(cmd);
+    Misc::blockbot(cmd);
     Misc::fastPlant(cmd);
     Misc::prepareRevolver(cmd);
     Misc::sniperCrosshair();
