@@ -266,45 +266,46 @@ void Misc::quickReload(UserCmd* cmd) noexcept
     }
     void Misc::blockbot(CUserCmd* pCmd) {
  
-	
-	float bestdist = 150.f;
-	int index = -1;
- 
-	for (int i = 1; i < Interfaces::Engine()->GetMaxClients(); i++)
+	if (config.misc.blockbot) 
 	{
-		CPlayer* entity = g_pPlayers->GetPlayer(i);
-		
-		if (!entity)
-			continue;
- 
-		if (!entity->iHealth > 0 || !entity->m_pEntity || entity->m_pEntity == g_pPlayers->GetLocal()->m_pEntity )
-			continue;
- 
-		float dist = entity->iDistance;
- 
-		if (dist < bestdist)
+		float bestdist = 150.f;
+		int index = -1;
+
+		for (int i = 1; i < Interfaces::Engine()->GetMaxClients(); i++)
 		{
-			bestdist = dist;
-			index = i;
+			CPlayer* entity = g_pPlayers->GetPlayer(i);
+
+			if (!entity)
+				continue;
+
+			if (!entity->iHealth > 0 || !entity->m_pEntity || entity->m_pEntity == g_pPlayers->GetLocal()->m_pEntity )
+				continue;
+
+			float dist = entity->iDistance;
+
+			if (dist < bestdist)
+			{
+				bestdist = dist;
+				index = i;
+			}
 		}
+
+		if (index == -1)
+			return;
+
+		CPlayer* target = g_pPlayers->GetPlayer(index);
+
+		if (!target)
+			return;
+
+
+
+
+
+		if (Client::g_vCenterScreen.x < target->vOriginScreen.x - 10)
+			pCmd->sidemove = 450.f;
+		else if (Client::g_vCenterScreen.x > target->vOriginScreen.x + 10)
+			pCmd->sidemove = -450.f;
 	}
- 
-	if (index == -1)
-		return;
- 
-	CPlayer* target = g_pPlayers->GetPlayer(index);
- 
-	if (!target)
-		return;
- 
-	
- 
-	
- 
-	if (Client::g_vCenterScreen.x < target->vOriginScreen.x - 10)
-		pCmd->sidemove = 450.f;
-	else if (Client::g_vCenterScreen.x > target->vOriginScreen.x + 10)
-		pCmd->sidemove = -450.f;
- 
     }
 }
