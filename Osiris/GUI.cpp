@@ -852,6 +852,8 @@ void GUI::renderMiscWindow() noexcept
         ImGui::Checkbox("Bomb timer", &config.misc.bombTimer);
         ImGui::Checkbox("Quick reload", &config.misc.quickReload);
         ImGui::Checkbox("Prepare revolver", &config.misc.prepareRevolver);
+        ImGui::Checkbox("Blockbot", &config.misc.blockbot);
+        ImGui::Checkbox("On key", &config.blockbot.onKey);
         ImGui::SameLine();
         hotkey(config.misc.prepareRevolverKey);
         ImGui::Combo("Hit Sound", &config.misc.hitSound, "None\0Metal\0Gamesense\0Bell\0Glass\0");
