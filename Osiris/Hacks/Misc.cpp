@@ -298,10 +298,6 @@ void Misc::quickReload(UserCmd* cmd) noexcept
 		if (!target)
 			return;
 
-
-
-
-
 		if (Client::g_vCenterScreen.x < target->vOriginScreen.x - 10)
 			pCmd->sidemove = 450.f;
 		else if (Client::g_vCenterScreen.x > target->vOriginScreen.x + 10)
