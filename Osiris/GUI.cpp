@@ -6,7 +6,7 @@
 #include "imgui/imgui.h"
 #include "imgui/imgui_impl_win32.h"
 
-#include "GUI.h"
+#include "GUI.h"a
 #include "Config.h"
 #include "Hacks/Misc.h"
 #include "Hacks/SkinChanger.h"
